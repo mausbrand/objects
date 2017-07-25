@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* IMAGE */
+// The .image class makes it easy to set up background imagery.
+// #DOCUME: .image as background-image
+
+// Prefixes and objects:
+// .image-
+// .img-
+// .thumbnail-
+
+.image {
+  background-image: url(attr('data-src'));
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+// An image with parallax effect wrapper makes it easy to use screen wide images with the well known scroll effect.
+.image-vParallax {
+  background-attachment: fixed;
+  // disable background-attachment: fixed; on iOS devices
+  .mq-hdpi(@break2x, {
+    background-attachment: scroll !important;
+    background-size: 100%;
+  });
+}
+
+// A squared image. Set the width of the .image container.
+.image-vSquare:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+
+// image shapes
+.img-rounded {display: inline-block; border-radius: 6px;}
+.img-circle {display: inline-block; border-radius: 100%;}
+.img-thumbnail {
+  display: inline-block;
+  padding: .5em;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+// thumbnail
+.thumbnail {
+    display: block;
+    padding: .5em;
+    margin-bottom: 1em;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: .2s ease border;
+    p {
+      color: @textColor; // reset color, to avoid a link color if is wrapped by a link
+    }
+}
+a:hover .thumbnail {
+  border-color: @mainColor;
+}
+.thumbnail-img {}
+.thumbnail-caption {
+  margin-top: .5em;
+  padding: 1em;
+}
+
+
+
